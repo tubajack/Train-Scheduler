@@ -9,8 +9,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-window.onload({
-    
-});
+//Set up the submit button. 
 
 
