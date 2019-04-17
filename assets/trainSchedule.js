@@ -9,6 +9,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var database = firebase.database();
+
 //Set up the submit button. 
 $("add-train").on("click", function(event){
     event.preventDefault();
@@ -26,6 +28,9 @@ $("add-train").on("click", function(event){
         Time: trainTime, 
         Frequency: trainFrequency
     };
+
+    //Upload train data to the database
+    database.ref().push(tempTrain);
 
 });
 
