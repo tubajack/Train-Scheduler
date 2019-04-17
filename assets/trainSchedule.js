@@ -32,6 +32,15 @@ $("add-train").on("click", function(event){
     //Upload train data to the database
     database.ref().push(tempTrain);
 
+    //Log everything to the console
+    console.log(trainName);
+    console.log(destination);
+    console.log(trainTime);
+    console.log(trainFrequency);
+
+    //Let the user know when a train is added successfully
+    alert("Your train has been successfully added");
+
 });
 
 
