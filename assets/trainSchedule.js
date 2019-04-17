@@ -10,5 +10,9 @@ var config = {
 firebase.initializeApp(config);
 
 //Set up the submit button. 
+$("add-train").on("click", function(event){
+    event.preventDefault();
+
+});
 
 
