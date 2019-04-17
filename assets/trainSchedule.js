@@ -13,6 +13,12 @@ firebase.initializeApp(config);
 $("add-train").on("click", function(event){
     event.preventDefault();
 
+    //Take in user input
+    var trainName = $("#train-name").val().trim();
+    var destination = $("#destination").val().trim();
+    var trainTime = $("#train-time").val().trim();
+    var trainFrequency = $("#train-frequency").val().trim();
+
 });
 
 
