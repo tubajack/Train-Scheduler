@@ -19,6 +19,14 @@ $("add-train").on("click", function(event){
     var trainTime = $("#train-time").val().trim();
     var trainFrequency = $("#train-frequency").val().trim();
 
+    //Create a local object for holding temporary data about the train
+    var tempTrain = {
+        Name: trainName,
+        Destination: destination, 
+        Time: trainTime, 
+        Frequency: trainFrequency
+    };
+
 });
 
 
