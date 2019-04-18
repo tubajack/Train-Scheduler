@@ -4,9 +4,7 @@ var config = {
     apiKey: "AIzaSyCObCno2oun2XkmjaBX__fIR0Ez03af7Yo",
     authDomain: "train-scheduler-16447.firebaseapp.com",
     databaseURL: "https://train-scheduler-16447.firebaseio.com",
-    projectId: "train-scheduler-16447",
     storageBucket: "train-scheduler-16447.appspot.com",
-    messagingSenderId: "836220881869"
   };
   firebase.initializeApp(config);
 
@@ -65,6 +63,9 @@ database.ref().on("child_added", function(child){
     console.log(destination);
     console.log(trainTime);
     console.log(trainFrequency);
+
+    //Prettify the time of arrival
+    var trainTimePretty = moment.unix(trainTime).format("HH:MM");
 
     // Create the new row
     var newRow = $("<tr>").append(
