@@ -4,7 +4,7 @@ var config = {
     apiKey: "AIzaSyCObCno2oun2XkmjaBX__fIR0Ez03af7Yo",
     authDomain: "train-scheduler-16447.firebaseapp.com",
     databaseURL: "https://train-scheduler-16447.firebaseio.com",
-    storageBucket: "train-scheduler-16447.appspot.com",
+    storageBucket: "train-scheduler-16447.appspot.com"
   };
   firebase.initializeApp(config);
 
@@ -17,7 +17,7 @@ $("add-train").on("click", function(event){
     //Take in user input
     var trainName = $("#train-name").val().trim();
     var destination = $("#destination").val().trim();
-    var trainTime = $("#train-time").val().trim();
+    var trainTime = moment($("#train-time").val().trim(), "HH:MM").format("X");
     var trainFrequency = $("#train-frequency").val().trim();
 
     //Create a local object for holding temporary data about the train
@@ -54,13 +54,13 @@ database.ref().on("child_added", function(child){
 
     //Store all inputted values into a variable
     var trainName = child.val().Name;
-    var destination = child.val().Destination;
+    var trainDestination = child.val().Destination;
     var trainTime = child.val().Time;
     var trainFrequency = child.val().Frequency;
 
     //Get all train information
     console.log(trainName);
-    console.log(destination);
+    console.log(trainDestination);
     console.log(trainTime);
     console.log(trainFrequency);
 
