@@ -33,6 +33,7 @@ $("add-train").on("click", function(event){
     database.ref().push(tempTrain);
 
     //Log everything to the console
+    console.log(tempTrain);
     console.log(trainName);
     console.log(destination);
     console.log(trainTime);
@@ -48,5 +49,10 @@ $("add-train").on("click", function(event){
     $("#train-frequency").val("");
 
 });
+
+//Create a firebase event for adding the train to the database
+database.ref().on("child_added", function(child){
+    console.log(child.val());
+})
 
 
