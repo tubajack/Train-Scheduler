@@ -1,4 +1,5 @@
-// Initialize Firebase
+window.onload = function(){
+    // Initialize Firebase
 var config = {
     apiKey: "AIzaSyCObCno2oun2XkmjaBX__fIR0Ez03af7Yo",
     authDomain: "train-scheduler-16447.firebaseapp.com",
@@ -64,6 +65,22 @@ database.ref().on("child_added", function(child){
     console.log(destination);
     console.log(trainTime);
     console.log(trainFrequency);
+
+    // Create the new row
+    var newRow = $("<tr>").append(
+        $("<td>").text(trainName),
+        $("<td>").text(destination),
+        $("<td>").text(trainTime),
+        $("<td>").text(trainFrequency),
+    );
+
+  // Append the new row to the table
+  $("#employee-table > tbody").append(newRow);
 })
+
+
+
+
+}
 
 
