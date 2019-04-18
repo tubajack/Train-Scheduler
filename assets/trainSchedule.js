@@ -41,6 +41,12 @@ $("add-train").on("click", function(event){
     //Let the user know when a train is added successfully
     alert("Your train has been successfully added");
 
+    //Clear all of the text boxes after submitting a train
+    $("#train-name").val("");
+    $("#destination").val("");
+    $("#train-time").val("");
+    $("#train-frequency").val("");
+
 });
 
 
