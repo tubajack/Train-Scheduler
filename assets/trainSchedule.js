@@ -67,11 +67,16 @@ database.ref().on("child_added", function(child){
     //Prettify the time of arrival
     var trainTimePretty = moment.unix(trainTime).format("HH:MM");
 
+    //Calculate the next arrival
+    var nextArrival = moment().diff(moment(trainFrequency, "X"), "minutes");
+    
+    //Calculate the minutes away
+    var minutesAway = moment().diff(moment(nextArrival, "X"), "minutes");
+
     // Create the new row
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(destination),
-        $("<td>").text(trainTime),
         $("<td>").text(trainFrequency),
     );
 
