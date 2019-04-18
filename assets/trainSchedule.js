@@ -58,6 +58,12 @@ database.ref().on("child_added", function(child){
     var destination = child.val().Destination;
     var trainTime = child.val().Time;
     var trainFrequency = child.val().Frequency;
+
+    //Get all train information
+    console.log(trainName);
+    console.log(destination);
+    console.log(trainTime);
+    console.log(trainFrequency);
 })
 
 
