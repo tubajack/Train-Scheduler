@@ -78,6 +78,8 @@ database.ref().on("child_added", function(child){
         $("<td>").text(trainName),
         $("<td>").text(destination),
         $("<td>").text(trainFrequency),
+        $("<td>").text(nextArrival),
+        $("<td>").text(minutesAway)
     );
 
   // Append the new row to the table
