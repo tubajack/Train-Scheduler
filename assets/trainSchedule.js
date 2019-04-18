@@ -33,11 +33,10 @@ $("add-train").on("click", function(event){
     database.ref().push(tempTrain);
 
     //Log everything to the console
-    console.log(tempTrain);
-    console.log(trainName);
-    console.log(destination);
-    console.log(trainTime);
-    console.log(trainFrequency);
+    console.log(tempTrain.Name);
+    console.log(tempTrain.Destination);
+    console.log(tempTrain.Time);
+    console.log(tempTrain.Frequency);
 
     //Let the user know when a train is added successfully
     alert("Your train has been successfully added");
@@ -53,6 +52,12 @@ $("add-train").on("click", function(event){
 //Create a firebase event for adding the train to the database
 database.ref().on("child_added", function(child){
     console.log(child.val());
+
+    //Store all inputted values into a variable
+    var trainName = child.val().Name;
+    var destination = child.val().Destination;
+    var trainTime = child.val().Time;
+    var trainFrequency = child.val().Frequency;
 })
 
 
