@@ -1,14 +1,16 @@
-window.onload = function(){
-    // Initialize Firebase
+// Initialize Firebase
 var config = {
     apiKey: "AIzaSyCObCno2oun2XkmjaBX__fIR0Ez03af7Yo",
     authDomain: "train-scheduler-16447.firebaseapp.com",
     databaseURL: "https://train-scheduler-16447.firebaseio.com",
     storageBucket: "train-scheduler-16447.appspot.com"
-  };
-  firebase.initializeApp(config);
+};
+firebase.initializeApp(config);
 
 var database = firebase.database();
+database.ref();
+
+console.log("This is the firebase. It is working just like it is supposed to.");
 
 //Set up the submit button. 
 $("add-train").on("click", function(event){
@@ -49,14 +51,14 @@ $("add-train").on("click", function(event){
 });
 
 //Create a firebase event for adding the train to the database
-database.ref().on("child_added", function(child){
-    console.log(child.val());
+database.ref().on("child_added", function(childSnapshot){
+    console.log(childSnapshot.val());
 
     //Store all inputted values into a variable
-    var trainName = child.val().Name;
-    var trainDestination = child.val().Destination;
-    var trainTime = child.val().Time;
-    var trainFrequency = child.val().Frequency;
+    var trainName = childSnapshot.val().Name;
+    var trainDestination = childSnapshot.val().Destination;
+    var trainTime = childSnapshot.val().Time;
+    var trainFrequency = childSnapshot.val().Frequency;
 
     //Get all train information
     console.log(trainName);
@@ -82,13 +84,11 @@ database.ref().on("child_added", function(child){
         $("<td>").text(minutesAway)
     );
 
-  // Append the new row to the table
-  $("#employee-table > tbody").append(newRow);
-})
+// Append the new row to the table
+$("#employee-table > tbody").append(newRow);
+});
 
 
 
-
-}
 
 
