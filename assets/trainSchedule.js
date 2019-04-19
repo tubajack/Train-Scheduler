@@ -85,8 +85,8 @@ database.ref().on("child_added", function(childSnapshot){
         $("<td>").text(minutesAway)
     );
 
-// Append the new row to the table
-$("#employee-table > tbody").append(newRow);
+    // Append the new row to the table
+    $("#employee-table > tbody").append(newRow);
 });
 
 
