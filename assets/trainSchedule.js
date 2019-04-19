@@ -11,6 +11,7 @@ var database = firebase.database();
 database.ref();
 
 console.log("This is the firebase. It is working just like it is supposed to.");
+console.log(config);
 
 //Set up the submit button. 
 $("add-train").on("click", function(event){
