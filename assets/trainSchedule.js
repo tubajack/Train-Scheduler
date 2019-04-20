@@ -70,10 +70,19 @@ database.ref().on("child_added", function(childSnapshot){
     var trainTimePretty = moment.unix(trainTime).format("HH:MM");
 
     //Calculate the next arrival
-    var nextArrival = moment().diff(moment(trainFrequency, "X"), "minutes");
+    var m = moment(trainTime, 'HH:mm');
+    var timeNow = moment();
+    console.log("M: " + m.format('HH:mm'));
+    console.log("The current time is: " + (timeNow).format('HH:mm'));
+
+    while(moment(trainTime) < moment()){
+        moment(trainTime).add(trainFrequency, 'minutes');
+        console.log(moment(trainTime));
+    }
+    var nextArrival = moment(trainTime, 'hh:mm').format('hh:mm A');
     
     //Calculate the minutes away
-    var minutesAway = moment().diff('minutes');
+    var minutesAway = trainFrequency;
 
     // Create the new row
     var newRow = $("<tr>").append(
