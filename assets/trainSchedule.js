@@ -75,8 +75,8 @@ database.ref().on("child_added", function(childSnapshot){
     console.log("M: " + m.format('HH:mm'));
     console.log("The current time is: " + (timeNow).format('HH:mm'));
 
-    while(moment(trainTime) < moment()){
-        moment(trainTime).add(trainFrequency, 'minutes');
+    while(m.valueOf() < moment()){
+        m.add(trainFrequency, 'minutes');
         console.log(moment(trainTime));
     }
     var nextArrival = moment(trainTime, 'hh:mm').format('hh:mm A');
