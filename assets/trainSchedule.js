@@ -19,7 +19,7 @@ $("#add-train").on("click", function(event){
     //Take in user input
     var trainName = $("#train-name").val().trim();
     var destination = $("#destination").val().trim();
-    var trainTime = moment($("#train-time").val().trim(), "HH:MM").format();
+    var trainTime = $("#train-time").val().trim();
     var trainFrequency = $("#train-frequency").val().trim();
 
     //Create a local object for holding temporary data about the train
@@ -73,12 +73,12 @@ database.ref().on("child_added", function(childSnapshot){
     var nextArrival = moment().diff(moment(trainFrequency, "X"), "minutes");
     
     //Calculate the minutes away
-    var minutesAway = moment().diff(moment(nextArrival, "X"), "minutes");
+    var minutesAway = moment().diff('minutes');
 
     // Create the new row
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
-        $("<td>").text(destination),
+        $("<td>").text(trainDestination),
         $("<td>").text(trainFrequency),
         $("<td>").text(nextArrival),
         $("<td>").text(minutesAway)
