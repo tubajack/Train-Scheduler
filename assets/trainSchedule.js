@@ -75,11 +75,11 @@ database.ref().on("child_added", function(childSnapshot){
     console.log("M: " + m.format('HH:mm'));
     console.log("The current time is: " + (timeNow).format('HH:mm'));
 
-    while(m.valueOf() < moment()){
+    while(m.valueOf() < timeNow.valueOf()){
         m.add(trainFrequency, 'minutes');
         console.log(moment(trainTime));
     }
-    var nextArrival = moment(trainTime, 'hh:mm').format('hh:mm A');
+    var nextArrival = m.format('HH:mm A')
     
     //Calculate the minutes away
     var minutesAway = trainFrequency;
