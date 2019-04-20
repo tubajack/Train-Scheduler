@@ -8,7 +8,6 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-database.ref();
 
 console.log("This is the firebase. It is working just like it is supposed to.");
 console.log(config);
@@ -20,7 +19,7 @@ $("#add-train").on("click", function(event){
     //Take in user input
     var trainName = $("#train-name").val().trim();
     var destination = $("#destination").val().trim();
-    var trainTime = moment($("#train-time").val().trim(), "HH:MM").format("X");
+    var trainTime = moment($("#train-time").val().trim(), "HH:MM").format();
     var trainFrequency = $("#train-frequency").val().trim();
 
     //Create a local object for holding temporary data about the train
@@ -48,8 +47,6 @@ $("#add-train").on("click", function(event){
     $("#destination").val("");
     $("#train-time").val("");
     $("#train-frequency").val("");
-
-    console.log("What is going on here?");
 
 });
 
