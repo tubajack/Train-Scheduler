@@ -14,7 +14,7 @@ console.log("This is the firebase. It is working just like it is supposed to.");
 console.log(config);
 
 //Set up the submit button. 
-$("add-train").on("click", function(event){
+$("#add-train").on("click", function(event){
     event.preventDefault();
 
     //Take in user input
@@ -48,6 +48,8 @@ $("add-train").on("click", function(event){
     $("#destination").val("");
     $("#train-time").val("");
     $("#train-frequency").val("");
+
+    console.log("What is going on here?");
 
 });
 
@@ -87,7 +89,11 @@ database.ref().on("child_added", function(childSnapshot){
 
     // Append the new row to the table
     $("#employee-table > tbody").append(newRow);
+
+   
 });
+
+
 
 
 
