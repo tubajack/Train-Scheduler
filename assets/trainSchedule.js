@@ -79,7 +79,7 @@ database.ref().on("child_added", function(childSnapshot){
         m.add(trainFrequency, 'minutes');
         console.log(moment(trainTime));
     }
-    var nextArrival = m.format('HH:mm A')
+    var nextArrival = m.format('hh:mm A')
     
     //Calculate the minutes away
     var minutesAway = trainFrequency;
