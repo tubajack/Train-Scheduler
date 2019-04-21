@@ -3,5 +3,7 @@ body, html{
 }
 
 .bg{
-    background-image: url("/assets/train.jpg");
+    background-image: url("../assets/train.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
 }
