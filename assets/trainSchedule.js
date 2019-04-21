@@ -9,7 +9,6 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-console.log("This is the firebase. It is working just like it is supposed to.");
 console.log(config);
 
 //Set up the submit button. 
