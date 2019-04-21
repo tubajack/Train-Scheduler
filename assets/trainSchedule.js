@@ -81,8 +81,8 @@ database.ref().on("child_added", function(childSnapshot){
     }
     var nextArrival = m.format('hh:mm A')
     
-    //Calculate the minutes away
-    var minutesAway = trainFrequency;
+    //Calculate the minutes away. This is the difference between the nextArrival and current time
+    var minutesAway = m.diff(timeNow.subtract(1, 'minute'), 'minutes');
 
     // Create the new row
     var newRow = $("<tr>").append(
